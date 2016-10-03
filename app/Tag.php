@@ -44,4 +44,14 @@ class Tag extends Model
     {
         return action('BlogController@byTag', $this->slug);
     }
+
+    /**
+     * Get the URL of the tag banner image.
+     *
+     * @return string
+     */
+    public function getBannerUrlAttribute() {
+        // TODO
+        return 'https://i.imgur.com/2tExPxR.jpg';
+    }
 }

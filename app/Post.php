@@ -65,4 +65,14 @@ class Post extends Model
     public function getPermalinkAttribute() {
         return action('PostController@view', [$this->created_at->year, $this->created_at->format("m"), $this->slug]);
     }
+
+    /**
+     * Get the URL of the post banner image.
+     *
+     * @return string
+     */
+    public function getBannerUrlAttribute() {
+        // TODO
+        return 'https://i.imgur.com/ltb1MkC.jpg';
+    }
 }

@@ -56,4 +56,24 @@ class User extends Authenticatable
     {
         return action('BlogController@byUser', $this->name);
     }
+
+    /**
+     * Get the URL of the user avatar image.
+     *
+     * @return string
+     */
+    public function getAvatarUrlAttribute() {
+        // TODO
+        return 'https://i.imgur.com/lLxABPP.png';
+    }
+
+    /**
+     * Get the URL of the user banner image.
+     *
+     * @return string
+     */
+    public function getBannerUrlAttribute() {
+        // TODO
+        return 'https://i.imgur.com/pcCSeO0.jpg';
+    }
 }
