@@ -26,6 +26,7 @@ $factory->define(App\Tag::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $tag,
+        'description' => 'Posts related to '.$tag.'.',
         'slug' => strtolower(str_slug($tag))
     ];
 });

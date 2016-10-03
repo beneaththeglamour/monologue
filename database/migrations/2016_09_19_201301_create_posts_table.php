@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->string('title')->unique();
             $table->string('subtitle')->nullable();
             $table->string('slug', 128)->unique();
+            $table->string('banner', 32)->nullable();
             $table->text('summary');
             $table->mediumText('content');
             $table->timestamps();
