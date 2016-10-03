@@ -18,6 +18,8 @@ class PostController extends Controller
 		if ($post->created_at->year != $year || $post->created_at->format("m") != $month)
 			return abort(404);
         
-        return dump($post);
+        return view('blog.post', [
+            'post' => $post
+        ]);
     }
 }
