@@ -28,25 +28,14 @@
 		                </h1>
 		                
 		                <ul class="list-inline social">
-		                    <li class="list-inline-item">
-		                        <a href="#" class="icon-globe"></a>
-		                    </li>
-
-		                    <li class="list-inline-item">
-		                        <a href="#" class="icon-twitter"></a>
-		                    </li>
-
-		                    <li class="list-inline-item">
-		                        <a href="#" class="icon-github"></a>
-		                    </li>
-
-		                    <li class="list-inline-item">
-		                        <a href="#" class="icon-steam"></a>
-		                    </li>
-
-		                    <li class="list-inline-item">
-		                        <a href="#" class="icon-skype"></a>
-		                    </li>
+		                    @foreach ($filter['user']->meta as $network)
+		                    	@if (!starts_with($network->key, "social_"))
+		                    		@continue
+		                    	@endif
+		                    	<li class="list-inline-item">
+    		                        <a href="{{ $network->value }}" class="{{ $network->icon }}"></a>
+    		                    </li>
+		                    @endforeach
 		                </ul>
 		            </div>
 		        </div>

@@ -48,6 +48,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Get metadata values assigned to this user.
+     *
+     * @return App\Post
+     */
+    public function meta()
+    {
+        return $this->hasMany('App\Usermeta', 'user_id');
+    }
+
+    /**
      * Get the permanent URL for querying posts by this author.
      *
      * @return string
