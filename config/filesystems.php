@@ -54,6 +54,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'storage' => [
+            'driver' => 'local',
+            'root' => storage_path(env('USER_STORAGE_PATH')),
+            'url' => env('USER_STORAGE_URL'),
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => 'your-key',

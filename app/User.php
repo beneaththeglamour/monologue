@@ -73,8 +73,12 @@ class User extends Authenticatable
      * @return string
      */
     public function getAvatarUrlAttribute() {
-        // TODO
-        return 'https://i.imgur.com/lLxABPP.png';
+        $baseUrl = config('filesystems.disks.storage.url').'/avatars';
+
+        if (!\Storage::disk('storage')->exists('avatars/'.$this->avatar.'.png'))
+            return $baseUrl.'/default.png';
+        
+        return $baseUrl.'/'.$this->avatar.'.png';
     }
 
     /**
@@ -83,7 +87,11 @@ class User extends Authenticatable
      * @return string
      */
     public function getBannerUrlAttribute() {
-        // TODO
-        return 'https://i.imgur.com/pcCSeO0.jpg';
+        $baseUrl = config('filesystems.disks.storage.url').'/banners/users';
+
+        if (!\Storage::disk('storage')->exists('banners/users/'.$this->banner.'.jpg'))
+            return $baseUrl.'/default.jpg';
+        
+        return $baseUrl.'/'.$this->banner.'.jpg';
     }
 }

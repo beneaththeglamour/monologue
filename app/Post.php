@@ -72,7 +72,11 @@ class Post extends Model
      * @return string
      */
     public function getBannerUrlAttribute() {
-        // TODO
-        return 'https://i.imgur.com/ltb1MkC.jpg';
+        $baseUrl = config('filesystems.disks.storage.url').'/banners/posts';
+
+        if (!\Storage::disk('storage')->exists('banners/posts/'.$this->banner.'.jpg'))
+            return $baseUrl.'/default.jpg';
+        
+        return $baseUrl.'/'.$this->banner.'.jpg';
     }
 }

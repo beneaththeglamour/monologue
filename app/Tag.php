@@ -51,7 +51,11 @@ class Tag extends Model
      * @return string
      */
     public function getBannerUrlAttribute() {
-        // TODO
-        return 'https://i.imgur.com/2tExPxR.jpg';
+        $baseUrl = config('filesystems.disks.storage.url').'/banners/tags';
+
+        if (!\Storage::disk('storage')->exists('banners/tags/'.$this->banner.'.jpg'))
+            return $baseUrl.'/default.jpg';
+        
+        return $baseUrl.'/'.$this->banner.'.jpg';
     }
 }
