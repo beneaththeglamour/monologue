@@ -125,7 +125,13 @@
 						</a>
 						
 						<ul class="list-inline social">
-							{{-- social links --}}
+							@foreach ($post->author->meta as $social)
+								<li class="list-inline-item">
+									<a target="_blank" href="{{ $social->url }}">
+										<span class="{{ $social->icon }}" aria-hidden="true"></span>
+									</a>
+								</li>
+							@endforeach
 						</ul>
 					</div>
 				</div>
