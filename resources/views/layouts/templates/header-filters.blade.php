@@ -1,6 +1,10 @@
 @section('index-filter-generic')
 	@if (array_key_exists('tag', $filter))
-		<header class="showcase showcase-index" style="background-image: url('{{ $filter['tag']->bannerUrl }}');">
+		@push('styles')
+			#banner { background-image: url('{{ $filter['tag']->bannerUrl }}'); }
+		@endpush
+
+		<header class="showcase showcase-index" id="banner">
 		    <div class="overlay">
 		        <div class="container">
 		            <div class="postinfo text-xs-center">
@@ -15,7 +19,11 @@
 
 @section('index-filter-user')
 	@if (array_key_exists('user', $filter))
-		<header class="showcase showcase-index showcase-index-user" style="background-image: url('{{ $filter['user']->bannerUrl }}');">
+		@push('styles')
+			#banner { background-image: url('{{ $filter['user']->bannerUrl }}'); }
+		@endpush
+		
+		<header class="showcase showcase-index showcase-index-user" id="banner">
 		    <div class="overlay">
 		        <div class="container">
 		            <div class="postinfo text-xs-center">

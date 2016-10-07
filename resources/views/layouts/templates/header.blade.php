@@ -1,4 +1,3 @@
-@include('layouts.templates.logo')
 @include('layouts.templates.nav')
 
 @section('headerinclude')
@@ -15,6 +14,20 @@
 	    <link rel="icon" href="{{ elixir('img/favicon.png', 'monologue') }}">
 	    <link href="{{ elixir('css/monologue.css', 'monologue') }}" rel="stylesheet">
 	    @stack('link')
+
+	    <style type="text/css">
+    		#logo {
+    			background-image: url('{{ elixir('img/logo.png', 'monologue') }}');
+    			background-image: linear-gradient(transparent, transparent), url('{{ elixir('img/logo.svg', 'monologue') }}');
+    		}
+
+    		#logo-alt {
+    			background-image: url('{{ elixir('img/logo-alt.png', 'monologue') }}');
+    			background-image: linear-gradient(transparent, transparent), url('{{ elixir('img/logo-alt.svg', 'monologue') }}');
+    		}
+
+	    	@stack('styles')
+	    </style>
 	</head>
 @endsection
 
@@ -23,7 +36,9 @@
 		<div class="container">
 		    <div class="row">
 		        <div class="col-xs-12 col-lg-6">
-		            @yield('logo')
+    	            <div class="logo" id="logo">
+                	    <a href="{{ action('BlogController@index') }}"></a>
+                	</div>
 		        </div>
 		        
 		        <div class="col-xs-12 col-lg-6">

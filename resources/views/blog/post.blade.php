@@ -1,4 +1,3 @@
-@include('layouts.templates.logo')
 @include('layouts.templates.nav')
 @extends('layouts.app')
 
@@ -24,13 +23,20 @@
 	@endforeach
 @endpush
 
+@push('styles')
+	#banner { background-image: url('{{ $post->bannerUrl }}'); }
+	#avatar { background-image: url('{{ $post->author->avatarUrl }}'); }
+@endpush
+
 @section('header')
-	<header class="showcase" style="background-image: url('{{ $post->bannerUrl }}');">
+	<header class="showcase" id="banner">
 		<div class="overlay">
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12 col-lg-6">
-			            @yield('logo-alt')
+			            <div class="logo" id="logo-alt">
+		            	    <a href="{{ action('BlogController@index') }}"></a>
+		            	</div>
 			        </div>
 			        
 			        <div class="col-xs-12 col-lg-6">
@@ -108,7 +114,7 @@
 
 				<div class="media user">
 					<div class="media-left">
-						<div class="avatar" style="background-image: url('{{ $post->author->avatarUrl }}');">
+						<div class="avatar" id="avatar">
 							<a rel="author" href="{{ $post->author->permalink }}"></a>
 						</div>
 					</div>
