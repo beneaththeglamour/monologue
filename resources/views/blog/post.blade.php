@@ -1,7 +1,7 @@
 @include('layouts.templates.nav')
 @extends('layouts.app')
 
-@section('title'){{ $post->title }} &mdash; {{ config('app.name') }}@endsection
+@section('title'){{ $post->title }} &mdash; {{ env('BLOG_TITLE') }}@endsection
 @section('description'){{ $post->subtitle }}@endsection
 
 @push('meta')
