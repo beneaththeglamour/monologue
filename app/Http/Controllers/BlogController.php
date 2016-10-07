@@ -19,9 +19,9 @@ class BlogController extends Controller
     public function index()
     {
         return view('blog.index', [
-            // TODO: Add some function to filter out unpublished posts.
             // TODO: Add pagination to each of these index methods.
-            'posts' => Post::all()
+            'posts' => Post::whereNotNull('published_at')
+                            ->orderBy('published_at', 'desc')->get()
         ]);
     }
 
@@ -33,7 +33,9 @@ class BlogController extends Controller
     public function byTag(Tag $tag)
     {
     	return view('blog.index', [
-            'posts' => $tag->posts,
+            'posts' => $tag->posts()
+                        ->whereNotNull('published_at')
+                        ->orderBy('published_at', 'desc')->get(),
             'filter' => [
                 'tag' => $tag
             ]
@@ -48,7 +50,9 @@ class BlogController extends Controller
     public function byUser(User $user)
     {
     	return view('blog.index', [
-            'posts' => $user->posts,
+            'posts' => $user->posts()
+                        ->whereNotNull('published_at')
+                        ->orderBy('published_at', 'desc')->get(),
             'filter' => [
                 'user' => $user
             ]
@@ -63,7 +67,9 @@ class BlogController extends Controller
     public function byYear($year)
     {
     	return view('blog.index', [
-            'posts' => Post::whereYear('published_at', '=', $year)->get()
+            'posts' => Post::whereNotNull('published_at')
+                        ->whereYear('published_at', '=', $year)
+                        ->orderBy('published_at', 'desc')->get()
         ]);
     }
 
@@ -75,7 +81,10 @@ class BlogController extends Controller
     public function byMonth($year, $month)
     {
     	return view('blog.index', [
-            'posts' => Post::whereYear('published_at', '=', $year)->whereMonth('published_at', '=', $month)->get()
+            'posts' => Post::whereNotNull('published_at')
+                        ->whereYear('published_at', '=', $year)
+                        ->whereMonth('published_at', '=', $month)
+                        ->orderBy('published_at', 'desc')->get()
         ]);
     }
 }
