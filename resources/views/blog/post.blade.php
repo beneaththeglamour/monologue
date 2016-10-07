@@ -2,9 +2,27 @@
 @include('layouts.templates.nav')
 @extends('layouts.app')
 
-@section('title')
-{{ $post->title }} &mdash; {{ config('app.name') }}
-@endsection
+@section('title'){{ $post->title }} &mdash; {{ config('app.name') }}@endsection
+@section('description'){{ $post->subtitle }}@endsection
+
+@push('meta')
+	<meta name="author" content="{{ $post->author->display_name }}">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="{{ env('META_TWITTER_SITE') }}" />
+	<meta name="twitter:title" content="{{ $post->title }}">
+	<meta name="twitter:description" content="{{ $post->subtitle }}">
+	<meta name="twitter:image" content="{{ $post->bannerUrl }}" />
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="{{ $post->title }}">
+	<meta property="og:description" content="{{ $post->subtitle }}">
+	<meta property="og:image" content="{{ $post->bannerUrl }}">
+	<meta property="og:url" content="{{ URL::current() }}">
+	@foreach ($post->author->meta as $social)
+		@if ($social->network == "social_twitter")
+			<meta name="twitter:creator" content="{{ '@'.$social->account }}">
+		@endif
+	@endforeach
+@endpush
 
 @section('header')
 	<header class="showcase" style="background-image: url('{{ $post->bannerUrl }}');">
@@ -30,7 +48,7 @@
 					@endif
 					
 					<h3>
-						by <a href="{{ $post->author->permalink }}">{{ $post->author->display_name }}</a>
+						by <a rel="author" href="{{ $post->author->permalink }}">{{ $post->author->display_name }}</a>
 					</h3>
 				</div>
 			</div>
@@ -91,12 +109,12 @@
 				<div class="media user">
 					<div class="media-left">
 						<div class="avatar" style="background-image: url('{{ $post->author->avatarUrl }}');">
-							<a href="{{ $post->author->permalink }}"></a>
+							<a rel="author" href="{{ $post->author->permalink }}"></a>
 						</div>
 					</div>
 					
 					<div class="media-body info">
-						<a class="author" href="{{ $post->author->permalink }}">
+						<a rel="author" class="author" href="{{ $post->author->permalink }}">
 							{{ $post->author->display_name }}
 						</a>
 						

@@ -19,7 +19,7 @@ class Usermeta extends Model
      * @var array
      */
     protected $fillable = [
-        'value',
+        'account', 'url',
     ];
 
     /**
@@ -28,7 +28,7 @@ class Usermeta extends Model
      * @return string
      */
     public function getIconAttribute() {
-        switch ($this->key) {
+        switch ($this->network) {
             case "social_twitch":
                 return "icon-twitch";
             case "social_github":

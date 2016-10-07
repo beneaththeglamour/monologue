@@ -16,9 +16,10 @@ class CreateUserMetaTable extends Migration
         Schema::create('usermeta', function (Blueprint $table) {
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('key');
-            $table->string('value');
-            $table->unique(['user_id', 'key']);
+            $table->string('network');
+            $table->string('account');
+            $table->string('url');
+            $table->unique(['user_id', 'network']);
         });
     }
 

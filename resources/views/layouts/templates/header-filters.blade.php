@@ -28,12 +28,12 @@
 		                </h1>
 		                
 		                <ul class="list-inline social">
-		                    @foreach ($filter['user']->meta as $network)
-		                    	@if (!starts_with($network->key, "social_"))
+		                    @foreach ($filter['user']->meta as $social)
+		                    	@if (!starts_with($social->network, "social_"))
 		                    		@continue
 		                    	@endif
 		                    	<li class="list-inline-item">
-    		                        <a href="{{ $network->value }}" class="{{ $network->icon }}"></a>
+    		                        <a href="{{ $social->url }}" class="{{ $social->icon }}"></a>
     		                    </li>
 		                    @endforeach
 		                </ul>
