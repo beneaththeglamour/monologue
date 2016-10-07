@@ -213,9 +213,10 @@ article {
 
             font-size: 16px;
             font-family: @serif;
+            line-height: 1.89;
             letter-spacing: -.16px;
-            padding: 6px 0;
-            line-height: 1.87;
+            padding: 5px 0;
+            margin-bottom: 10px;
         }
     }
 
@@ -269,8 +270,124 @@ article {
 
 article.post {
     @media (min-width: 992px) {
+        p {
+            font-size: 18px;
+            line-height: 1.87;
+        }
+
         width: 88%;
     }
+
+    /* */
+    a {
+        color: #45196f;
+
+        &:hover {
+            color: #6b3d9a;
+        }
+    }
+
+    h1 { font-size: 35px; }
+    h2 { font-size: 30px; }
+
+    h1, h2, h3, h4 {
+        font-family: 'Roboto Light';
+        margin-top: 25px;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px #eaeaea solid;
+    }
+
+    pre {
+        margin: 15px 0;
+        padding: 10px;
+        border-radius: 0;
+        font-size: 12px;
+        line-height: 1.7;
+        color: #2d2d2d;
+        word-break: break-all;
+        word-wrap: break-word;
+        background: #fafafa;
+        border: 1px solid #eaeaea;
+    }
+
+    code {
+        color: #6d6d6d;
+        background: #f9f2f4;
+        border-radius: 0;
+        font-size: 75%;
+        padding: 3px 4px;
+        margin: 0 2px;
+
+        a {
+            color: #654769;
+        }
+    }
+
+    img {
+        display: inline-block;
+        padding: 2px;
+        margin-bottom: 6px;
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ddd;
+
+        .noborder {
+            border: 0;
+        }
+    }
+
+    div.caption {
+        width: 75%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 15px 0 25px;
+
+        small {
+            color: #8e8e8e;
+        }
+
+        a {
+            color: #816a92;
+        }
+    }
+
+    div.caption-sm {
+        width: 50%;
+    }
+
+    div.video {
+        margin-bottom: 10px;
+        box-shadow: 0 0 30px -5px rgba(0,0,0,.5);
+    }
+
+    blockquote {
+        div.cite {
+            font-size: 12px;
+            margin-top: 6px;
+            margin-bottom: 20px;
+            color: #afafaf;
+
+            a {
+                color: #8c8c8c;
+            }
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+
+        samp {
+            font-size: 13px;
+        }
+
+        padding: 5px 20px;
+        margin: 20px 0 20px;
+        font-size: 17.5px;
+        font-family: Georgia;
+        border-left: 5px solid #efefef;
+    }
+    /* */
 
     div.user {
         margin-bottom: 12px;
@@ -307,7 +424,7 @@ article.post {
 
     width: 100%;
     margin: 0 auto;
-    padding: 30px 0 10px;
+    padding: 35px 0 10px;
 }
 
 div.index {
