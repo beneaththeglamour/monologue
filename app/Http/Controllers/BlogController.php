@@ -18,10 +18,12 @@ class BlogController extends Controller
      */
     public function index()
     {
+        $posts = Post::whereNotNull('published_at')
+                        ->orderBy('published_at', 'desc')->get();
+
         return view('blog.index', [
             // TODO: Add pagination to each of these index methods.
-            'posts' => Post::whereNotNull('published_at')
-                            ->orderBy('published_at', 'desc')->get()
+            'posts' => $posts
         ]);
     }
 
@@ -32,12 +34,15 @@ class BlogController extends Controller
      */
     public function byTag(Tag $tag)
     {
-    	return view('blog.index', [
-            'posts' => $tag->posts()
+        $posts = $tag->posts()
                         ->whereNotNull('published_at')
-                        ->orderBy('published_at', 'desc')->get(),
+                        ->orderBy('published_at', 'desc')->get();
+
+    	return view('blog.index', [
+            'posts' => $posts,
             'filter' => [
-                'tag' => $tag
+                'tag' => $tag,
+                'count' => $posts->count()
             ]
         ]);
     }
@@ -49,12 +54,15 @@ class BlogController extends Controller
      */
     public function byUser(User $user)
     {
-    	return view('blog.index', [
-            'posts' => $user->posts()
+        $posts = $user->posts()
                         ->whereNotNull('published_at')
-                        ->orderBy('published_at', 'desc')->get(),
+                        ->orderBy('published_at', 'desc')->get();
+
+    	return view('blog.index', [
+            'posts' => $posts,
             'filter' => [
-                'user' => $user
+                'user' => $user,
+                'count' => $posts->count()
             ]
         ]);
     }

@@ -10,6 +10,7 @@
 		            <div class="postinfo text-xs-center">
 		                <h1>{{ $filter['tag']->name }}</h1>
 		                <h2>{{ $filter['tag']->description }}</h2>
+		                <h3>{{ $filter['count'] }} {{ strtoupper(str_plural('post', $filter['count'])) }}</h3>
 		            </div>
 		        </div>
 		    </div>
@@ -45,6 +46,10 @@
     		                    </li>
 		                    @endforeach
 		                </ul>
+
+		                <h3 class="user">
+		                	{{ $filter['count'] }} {{ strtoupper(str_plural('post', $filter['count'])) }}
+		                </h3>
 		            </div>
 		        </div>
 		    </div>
