@@ -1,5 +1,9 @@
 @include('layouts.templates.nav')
 
+@push('scripts')
+	<script src="{{ elixir('js/monologue.js', env('ELIXIR_DIRECTORY')) }}"></script>
+@endpush
+
 @section('headerinclude')
 	<head>
 	    <title>@yield('title', env('BLOG_TITLE'))</title>
@@ -11,19 +15,19 @@
 	    <meta name="description" content="@yield('description', env('BLOG_DESCRIPTION'))">
 		@stack('meta')
 
-	    <link rel="icon" href="{{ elixir('img/favicon.png', 'monologue') }}">
-	    <link href="{{ elixir('css/monologue.css', 'monologue') }}" rel="stylesheet">
+	    <link rel="icon" href="{{ elixir('img/favicon.png', env('ELIXIR_DIRECTORY')) }}">
+	    <link href="{{ elixir('css/monologue.css', env('ELIXIR_DIRECTORY')) }}" rel="stylesheet">
 	    @stack('link')
 
 	    <style type="text/css">
     		#logo {
-    			background-image: url('{{ elixir('img/logo.png', 'monologue') }}');
-    			background-image: linear-gradient(transparent, transparent), url('{{ elixir('img/logo.svg', 'monologue') }}');
+    			background-image: url('{{ elixir('img/logo.png', env('ELIXIR_DIRECTORY')) }}');
+    			background-image: linear-gradient(transparent, transparent), url('{{ elixir('img/logo.svg', env('ELIXIR_DIRECTORY')) }}');
     		}
 
     		#logo-alt {
-    			background-image: url('{{ elixir('img/logo-alt.png', 'monologue') }}');
-    			background-image: linear-gradient(transparent, transparent), url('{{ elixir('img/logo-alt.svg', 'monologue') }}');
+    			background-image: url('{{ elixir('img/logo-alt.png', env('ELIXIR_DIRECTORY')) }}');
+    			background-image: linear-gradient(transparent, transparent), url('{{ elixir('img/logo-alt.svg', env('ELIXIR_DIRECTORY')) }}');
     		}
 
 	    	@stack('styles')

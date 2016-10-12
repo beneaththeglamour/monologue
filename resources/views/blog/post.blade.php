@@ -28,11 +28,6 @@
 	#avatar { background-image: url('{{ $post->author->avatarUrl }}'); }
 @endpush
 
-@push('scripts')
-	<script src="{{ elixir('js/jquery.js', 'monologue') }}"></script>
-	<script src="{{ elixir('js/bootstrap.js', 'monologue') }}"></script>
-@endpush
-
 @section('header')
 	<header class="showcase" id="banner">
 		<div class="overlay">

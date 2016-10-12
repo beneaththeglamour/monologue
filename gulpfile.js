@@ -16,13 +16,14 @@ require('laravel-elixir-vue');
 elixir(mix => {
     mix.less('monologue.less');
 
-    mix.copy('resources/assets/js', 'public/js');
     mix.copy('resources/assets/img', 'public/img');
-    mix.copy('resources/assets/fonts', 'public/monologue/fonts');
+    mix.copy('resources/assets/fonts', 'public/assets/fonts');
 
+	mix.scripts(['jquery.js', 'bootstrap.js'], 'public/js/monologue.js');
+    
     mix.version([
     	'public/js/*.*',
     	'public/img/*.*',
     	'public/css/*.*'
-    ], 'public/monologue');
+    ], 'public/assets');
 });
