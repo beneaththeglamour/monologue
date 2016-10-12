@@ -31,7 +31,6 @@
 @push('scripts')
 	<script src="{{ elixir('js/jquery.js', 'monologue') }}"></script>
 	<script src="{{ elixir('js/bootstrap.js', 'monologue') }}"></script>
-	<script src="{{ elixir('js/video.js', 'monologue') }}"></script>
 @endpush
 
 @section('header')

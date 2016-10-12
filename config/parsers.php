@@ -83,8 +83,7 @@ return [
     'video' => [
         'pattern' => '/\[video\](.*?)\[\/video\]/s',
         'replace' => '<div class="video embed-responsive embed-responsive-16by9">'.
-                        '<video class="video-js vjs-16-9" controls preload="auto" data-setup="{}">'.
-                        '$1</video></div>'
+                     '<video controls>$1</video></div>'
     ],
 
     'source' => [
