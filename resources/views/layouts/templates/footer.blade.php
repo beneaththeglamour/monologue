@@ -34,7 +34,7 @@
 					</p>
 
 					<p class="copyright">
-						&copy; {{ date("Y") }}, {{ env('BLOG_TITLE') }} &mdash; <a href="https://github.com/aixxe/monologue">powered by monologue</a>
+						&copy; {{ date("Y") }}, {{ env('BLOG_TITLE') }} &mdash; <a href="https://github.com/aixxe/monologue">powered by monologue</a> (developed &amp; designed by aixxe)
 					</p>
 
 					<p class="social">
