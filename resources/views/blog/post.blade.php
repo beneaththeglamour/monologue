@@ -78,7 +78,7 @@
 					</div>
 				@endif
 
-				{!! $post->content !!}
+				{!! $post->parsedContent !!}
 			</section>
 
 			<section class="meta">

@@ -79,4 +79,32 @@ class Post extends Model
         
         return $baseUrl.'/'.$this->banner.'.jpg';
     }
+
+    /**
+     * Run the content through BBcode parsers and return the formatted HTML.
+     *
+     * @return string
+     */
+    public function getParsedContentAttribute() {
+        $content = $this->content;
+        
+        foreach (config('parsers') as $name => $parser) {
+            while (preg_match($parser['pattern'], $content, $matches)) {
+                if (!array_key_exists('replace', $parser)) {
+                    if ($name == 'pre')
+                        $content = preg_replace_callback($parser['pattern'], function($matches) {
+                            return "<pre>".htmlentities($matches[1])."</pre>";
+                        }, $content);
+                    elseif ($name == 'code')
+                        $content = preg_replace_callback($parser['pattern'], function($matches) {
+                            return "<code>".htmlentities($matches[1])."</code>";
+                        }, $content);
+                } else {
+                    $content = preg_replace($parser['pattern'], $parser['replace'], $content);
+                }
+            }
+        }
+
+        return $content;
+    }
 }
