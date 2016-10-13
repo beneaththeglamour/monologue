@@ -1,15 +1,8 @@
 @extends('layouts.app')
+@include('layouts.templates.header-filters')
 
 @section('content')
-    @if (isset($filter))
-        @include('layouts.templates.header-filters')
-
-        @if (array_key_exists('user', $filter))
-            @yield('index-filter-user')
-        @else
-            @yield('index-filter-generic')
-        @endif
-    @endif
+    @yield('index-filters')
 
     <div class="container index">
         @foreach ($posts as $key => $post)
@@ -51,5 +44,25 @@
                 @endif
             </article>
         @endforeach
+
+        @if ($posts->lastPage() !== 1)
+            <div class="pagination">
+                @if ($posts->currentPage() !== 1)
+                    <a title="Previous page" href="{{ $posts->previousPageUrl() }}">
+                        <span class="icon-chevron-left"></span>
+                    </a>
+                @endif
+                
+                <span class="separator">
+                    PAGE {{ $posts->currentPage() }} OF {{ $posts->lastPage() }}
+                </span>
+                
+                @if ($posts->hasMorePages())
+                    <a title="Next page" href="{{ $posts->nextPageUrl() }}">
+                        <span class="icon-chevron-right"></span>
+                    </a>
+                @endif
+            </div>
+        @endif
     </div>
 @endsection

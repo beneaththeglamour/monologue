@@ -442,7 +442,7 @@ article.post {
 
 div.index {
     padding-top: 25px;
-    padding-bottom: 25px;
+    padding-bottom: 35px;
 }
 
 article.index {
@@ -517,6 +517,27 @@ article.index {
     }
 }
 
+div.pagination {
+    width: 100%;
+    margin: 0 auto;
+    color: #909090;
+    font-size: 12px;
+    text-align: center;
+
+    a {
+        color: #7b7b7b;
+        text-decoration: none;
+
+        &:hover {
+            color: #9b8cb7;
+        }
+    }
+
+    span.separator {
+        padding: 0 25px;
+    }
+}
+
 footer {
     background: #1E1E1E;
     color: #FFF;
@@ -532,11 +553,30 @@ footer {
         transform: translateY(-50%);
     }
 
+    p.about {
+        color: #afafaf;
+        line-height: 1.75;
+        max-width: 675px;
+        margin-bottom: 10px;
+    }
+
+    p.copyright {
+        color: #636363;
+        font-size: 11.5px;
+        margin-bottom: 5px;
+
+        a { color: #848484; }
+    }
+
     p.social a {
         color: #636363;
-        font-size: 22px;
+        font-size: 30px;
         text-decoration: none;
 
+        @media (min-width:992px) {
+            font-size: 22px;
+        }
+        
         &:hover {
             color: #bdbdbd;
         }
@@ -591,21 +631,6 @@ footer {
         small.author {
             color: #868686;
         }
-    }
-
-    p.about {
-        color: #afafaf;
-        line-height: 1.75;
-        max-width: 675px;
-        margin-bottom: 10px;
-    }
-
-    p.copyright {
-        color: #636363;
-        font-size: 11.5px;
-        margin-bottom: 10px;
-
-        a { color: #848484; }
     }
 }
 

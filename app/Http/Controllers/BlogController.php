@@ -18,12 +18,10 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $posts = Post::whereNotNull('published_at')
-                        ->orderBy('published_at', 'desc')->get();
-
         return view('blog.index', [
-            // TODO: Add pagination to each of these index methods.
-            'posts' => $posts
+            'posts' => Post::whereNotNull('published_at')
+                    ->orderBy('published_at', 'desc')
+                    ->paginate(env('POSTS_PER_PAGE'))
         ]);
     }
 
@@ -34,16 +32,12 @@ class BlogController extends Controller
      */
     public function byTag(Tag $tag)
     {
-        $posts = $tag->posts()
-                        ->whereNotNull('published_at')
-                        ->orderBy('published_at', 'desc')->get();
-
-    	return view('blog.index', [
-            'posts' => $posts,
-            'filter' => [
-                'tag' => $tag,
-                'count' => $posts->count()
-            ]
+        return view('blog.index', [
+            'tag' => $tag,
+            'posts' => $tag->posts()
+                    ->whereNotNull('published_at')
+                    ->orderBy('published_at', 'desc')
+                    ->paginate(env('POSTS_PER_PAGE'))
         ]);
     }
 
@@ -54,16 +48,12 @@ class BlogController extends Controller
      */
     public function byUser(User $user)
     {
-        $posts = $user->posts()
-                        ->whereNotNull('published_at')
-                        ->orderBy('published_at', 'desc')->get();
-
-    	return view('blog.index', [
-            'posts' => $posts,
-            'filter' => [
-                'user' => $user,
-                'count' => $posts->count()
-            ]
+        return view('blog.index', [
+            'user' => $user,
+            'posts' => $user->posts()
+                    ->whereNotNull('published_at')
+                    ->orderBy('published_at', 'desc')
+                    ->paginate(env('POSTS_PER_PAGE'))
         ]);
     }
 
@@ -74,10 +64,11 @@ class BlogController extends Controller
      */
     public function byYear($year)
     {
-    	return view('blog.index', [
+        return view('blog.index', [
             'posts' => Post::whereNotNull('published_at')
-                        ->whereYear('published_at', '=', $year)
-                        ->orderBy('published_at', 'desc')->get()
+                    ->whereYear('published_at', '=', $year)
+                    ->orderBy('published_at', 'desc')
+                    ->paginate(env('POSTS_PER_PAGE'))
         ]);
     }
 
@@ -88,11 +79,12 @@ class BlogController extends Controller
      */
     public function byMonth($year, $month)
     {
-    	return view('blog.index', [
+        return view('blog.index', [
             'posts' => Post::whereNotNull('published_at')
-                        ->whereYear('published_at', '=', $year)
-                        ->whereMonth('published_at', '=', $month)
-                        ->orderBy('published_at', 'desc')->get()
+                    ->whereYear('published_at', '=', $year)
+                    ->whereMonth('published_at', '=', $month)
+                    ->orderBy('published_at', 'desc')
+                    ->paginate(env('POSTS_PER_PAGE'))
         ]);
     }
 }
