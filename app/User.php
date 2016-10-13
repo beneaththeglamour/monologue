@@ -48,6 +48,24 @@ class User extends Authenticatable
     }
 
     /**
+     * Get recent blog posts published by this user.
+     *
+     * @return App\Post
+     */
+    public function recentPosts($exclude = [], $count = 5, $only_published = true)
+    {
+        $query = $this->posts();
+
+        if ($only_published)
+            $query = $query->whereNotNull('published_at');
+
+        return $query->whereNotIn('id', $exclude)
+                ->orderBy('published_at', 'desc')
+                ->limit($count)
+                ->get();
+    }
+
+    /**
      * Get metadata values assigned to this user.
      *
      * @return App\Post
