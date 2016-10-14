@@ -138,25 +138,25 @@
 
 				@if ($post->author->posts->count() > 1)
 				{{-- TODO: Un-inline these styles --}}
-				<div>
-					<span style="color: #8b8b8b; font-size: 12px;">
+				<div class="more-posts">
+					<span class="title">
 						More posts by {{ $post->author->display_name }}..
 					</span>
 
-					<div style="margin-top: 10px;">
+					<div class="postlist">
 						@foreach ($post->author->recentPosts([$post->id]) as $related_post)
 						
 						@if ($related_post->id == $post->id)
 							@continue
 						@endif
 
-						<div style="margin-top: 15px;">
+						<div>
 							{{-- title --}}
-							<a href="{{ $related_post->permalink }}" style="font-size: 17px; color: #717171;">
+							<a href="{{ $related_post->permalink }}" class="title">
 								{{ $related_post->title }}
 							</a>
 							
-							<ul class="list-inline" style="font-size: 11px; color: #939393;">
+							<ul class="meta list-inline">
 								{{-- time --}}
 								<li class="list-inline-item">
 									<span class="icon-time" aria-hidden="true"></span> {{ strtoupper($related_post->created_at->format('d F Y')) }}
@@ -167,7 +167,7 @@
 									<span class="icon-tag" aria-hidden="true"></span>
 
 									@foreach ($related_post->tags as $related_tag)
-										<a style="color: #939393;" href="{{ action('BlogController@byTag', $related_tag->slug) }}">{{ strtoupper($related_tag->name) }}</a>{{ (!$loop->last ? ',': '') }}
+										<a href="{{ action('BlogController@byTag', $related_tag->slug) }}">{{ strtoupper($related_tag->name) }}</a>{{ (!$loop->last ? ',': '') }}
 									@endforeach
 								</li>
 							</ul>
