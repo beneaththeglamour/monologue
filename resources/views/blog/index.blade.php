@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @include('layouts.templates.header-filters')
 
+@push('link')
+<link rel="alternate" type="application/rss+xml" href="{{ $feed }}">
+@endpush
+
 @section('content')
     @yield('index-filters')
 

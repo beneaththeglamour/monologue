@@ -14,6 +14,13 @@
 Auth::routes();
 
 Route::group(['as' => 'blog'], function() {
+	/* syndication */
+	Route::get('/rss', 'RSSController@index');
+	Route::get('/rss/author/{user}', 'RSSController@byUser');
+	Route::get('/rss/tags/{tag}', 'RSSController@byTag');
+	Route::get('/rss/{year}', 'RSSController@byYear');
+	Route::get('/rss/{year}/{month}', 'RSSController@byMonth');
+	
 	/* post index */
 	Route::get('/', 'BlogController@index');
 	Route::get('/author/{user}', 'BlogController@byUser');

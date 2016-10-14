@@ -14,7 +14,7 @@
 		<div class="container">
 			<div class="row">
 				<section class="col-lg-3 links">
-					<div><a href="#">syndication</a></div>
+					<div><a href="{{ action('RSSController@index') }}">syndication</a></div>
 					<div><a href="#">projects</a></div>
 					<div><a href="#">contact</a></div>
 					<div><a href="#">log in</a></div>

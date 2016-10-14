@@ -1,7 +1,7 @@
 @include('layouts.templates.header')
 @include('layouts.templates.footer')
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ env('BLOG_LANGUAGE') }}">
     @yield('headerinclude')
     <body>
         @yield('header')

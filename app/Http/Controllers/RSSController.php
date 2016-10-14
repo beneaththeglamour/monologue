@@ -9,7 +9,7 @@ use App\Post;
 use App\User;
 use App\Tag;
 
-class BlogController extends Controller
+class RSSController extends Controller
 {
     /**
      * Show the most recent published posts.
@@ -18,12 +18,12 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('blog.index', [
-            'feed' => action('RSSController@index'),
+        return \Response::view('blog.rss', [
             'posts' => Post::whereNotNull('published_at')
                     ->orderBy('published_at', 'desc')
-                    ->paginate(env('POSTS_PER_PAGE'))
-        ]);
+                    ->limit(env('BLOG_RSS_MAX_POSTS'))
+                    ->get()
+        ])->header('Content-Type', 'application/rss+xml');
     }
 
     /**
@@ -33,14 +33,14 @@ class BlogController extends Controller
      */
     public function byTag(Tag $tag)
     {
-        return view('blog.index', [
+        return \Response::view('blog.rss', [
             'tag' => $tag,
-            'feed' => action('RSSController@byTag', [$tag->slug]),
             'posts' => $tag->posts()
                     ->whereNotNull('published_at')
                     ->orderBy('published_at', 'desc')
-                    ->paginate(env('POSTS_PER_PAGE'))
-        ]);
+                    ->limit(env('BLOG_RSS_MAX_POSTS'))
+                    ->get()
+        ])->header('Content-Type', 'application/rss+xml');
     }
 
     /**
@@ -50,14 +50,14 @@ class BlogController extends Controller
      */
     public function byUser(User $user)
     {
-        return view('blog.index', [
+        return \Response::view('blog.rss', [
             'user' => $user,
-            'feed' => action('RSSController@byUser', [$user->name]),
             'posts' => $user->posts()
                     ->whereNotNull('published_at')
                     ->orderBy('published_at', 'desc')
-                    ->paginate(env('POSTS_PER_PAGE'))
-        ]);
+                    ->limit(env('BLOG_RSS_MAX_POSTS'))
+                    ->get()
+        ])->header('Content-Type', 'application/rss+xml');
     }
 
     /**
@@ -67,13 +67,14 @@ class BlogController extends Controller
      */
     public function byYear($year)
     {
-        return view('blog.index', [
-            'feed' => action('RSSController@byYear', [$year]),
+        return \Response::view('blog.rss', [
+            'year' => $year,
             'posts' => Post::whereNotNull('published_at')
                     ->whereYear('published_at', '=', $year)
                     ->orderBy('published_at', 'desc')
-                    ->paginate(env('POSTS_PER_PAGE'))
-        ]);
+                    ->limit(env('BLOG_RSS_MAX_POSTS'))
+                    ->get()
+        ])->header('Content-Type', 'application/rss+xml');
     }
 
     /**
@@ -83,13 +84,15 @@ class BlogController extends Controller
      */
     public function byMonth($year, $month)
     {
-        return view('blog.index', [
-            'feed' => action('RSSController@byMonth', [$year, $month]),
+        return \Response::view('blog.rss', [
+            'year' => $year,
+            'month' => $month,
             'posts' => Post::whereNotNull('published_at')
                     ->whereYear('published_at', '=', $year)
                     ->whereMonth('published_at', '=', $month)
                     ->orderBy('published_at', 'desc')
-                    ->paginate(env('POSTS_PER_PAGE'))
-        ]);
+                    ->limit(env('BLOG_RSS_MAX_POSTS'))
+                    ->get()
+        ])->header('Content-Type', 'application/rss+xml');
     }
 }
