@@ -45,7 +45,7 @@
             </article>
         @endforeach
 
-        @if ($posts->lastPage() !== 1)
+        @if ($posts->lastPage() > 1)
             <div class="pagination">
                 @if ($posts->currentPage() !== 1)
                     <a title="Previous page" href="{{ $posts->previousPageUrl() }}">
