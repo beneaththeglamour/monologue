@@ -9,7 +9,7 @@
     @yield('index-filters')
 
     <div class="container index">
-        @foreach ($posts as $key => $post)
+        @forelse ($posts as $key => $post)
             <article class="index">
                 <header>
                     <h1>
@@ -47,7 +47,11 @@
                 <hr>
                 @endif
             </article>
-        @endforeach
+        @empty
+            <article class="index">
+                There's nothing here yet!
+            </article>
+        @endforelse
 
         @if ($posts->lastPage() > 1)
             <div class="pagination">
