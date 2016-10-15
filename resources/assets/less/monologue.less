@@ -585,21 +585,16 @@ div.pagination {
 footer {
     background: #1E1E1E;
     color: #FFF;
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    padding: 30px 0;
+    height: @footer-height;
+    transform-style: preserve-3d;
 
-    @media (min-width: 992px) {
-        padding: 0;
-        position: absolute;
-        bottom: 0;
-        transform-style: preserve-3d;
-        height: @footer-height;
-
-        div.container {
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+    div.container {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     p.about {
@@ -617,21 +612,17 @@ footer {
         a { color: #848484; }
     }
 
-    p.social {
-        margin-bottom: 0;
+    p.social a {
+        color: #636363;
+        font-size: 30px;
+        text-decoration: none;
 
-        a {
-            color: #636363;
-            font-size: 30px;
-            text-decoration: none;
-
-            @media (min-width:992px) {
-                font-size: 22px;
-            }
-            
-            &:hover {
-                color: #bdbdbd;
-            }
+        @media (min-width:992px) {
+            font-size: 22px;
+        }
+        
+        &:hover {
+            color: #bdbdbd;
         }
     }
 
@@ -650,7 +641,7 @@ footer {
             text-decoration: none;
 
             &:hover {
-                color: #afafaf;
+                color: #978d9c;
             }
         }
 
@@ -676,20 +667,15 @@ footer {
 
         padding-left: 15px;
         font-size: 14px;
+    }
 
-        div.title {
-            font-family: @sans-serif-light;
-            font-size: 18px;
-            padding-bottom: 10px;
+    div.title {
+        font-family: @sans-serif-light;
+        font-size: 18px;
+        padding-bottom: 10px;
 
-            small.author {
-                @media (min-width:992px) {
-                    display: inline;
-                }
-
-                display: block;
-                color: #868686;
-            }
+        small.author {
+            color: #868686;
         }
     }
 }
