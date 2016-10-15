@@ -67,12 +67,18 @@ class BlogController extends Controller
      */
     public function byYear($year)
     {
+        $posts = Post::whereNotNull('published_at')
+            ->whereYear('published_at', '=', $year)
+            ->orderBy('published_at', 'desc')
+            ->paginate(env('POSTS_PER_PAGE'));
+
+        if ($posts->count() === 0) {
+            return abort(404);
+        }
+
         return view('blog.index', [
             'feed' => action('RSSController@byYear', [$year]),
-            'posts' => Post::whereNotNull('published_at')
-                    ->whereYear('published_at', '=', $year)
-                    ->orderBy('published_at', 'desc')
-                    ->paginate(env('POSTS_PER_PAGE'))
+            'posts' => $posts
         ]);
     }
 
@@ -83,13 +89,19 @@ class BlogController extends Controller
      */
     public function byMonth($year, $month)
     {
+        $posts = Post::whereNotNull('published_at')
+            ->whereYear('published_at', '=', $year)
+            ->whereMonth('published_at', '=', $month)
+            ->orderBy('published_at', 'desc')
+            ->paginate(env('POSTS_PER_PAGE'));
+
+        if ($posts->count() === 0) {
+            return abort(404);
+        }
+
         return view('blog.index', [
             'feed' => action('RSSController@byMonth', [$year, $month]),
-            'posts' => Post::whereNotNull('published_at')
-                    ->whereYear('published_at', '=', $year)
-                    ->whereMonth('published_at', '=', $month)
-                    ->orderBy('published_at', 'desc')
-                    ->paginate(env('POSTS_PER_PAGE'))
+            'posts' => $posts
         ]);
     }
 }
