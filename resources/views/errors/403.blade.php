@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="container">
-    Something went wrong.
+	You don't have permission to view this page.
 </div>
 @endsection
