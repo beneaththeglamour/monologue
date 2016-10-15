@@ -11,12 +11,12 @@
 |
 */
 
-Route::group(['as' => 'blog'], function() {
+Route::group(['as' => 'blog', 'name' => 'blog'], function() {
 	/* minimal auth routes */
 	Route::get('/login', 'Auth\LoginController@showLoginForm');
 	Route::post('/login', 'Auth\LoginController@login');
 	Route::get('/logout', 'Auth\LoginController@logout');
-
+	
 	/* syndication */
 	Route::get('/rss', 'RSSController@index');
 	Route::get('/rss/author/{user}', 'RSSController@byUser');
@@ -25,6 +25,10 @@ Route::group(['as' => 'blog'], function() {
 	Route::get('/rss/{year}/{month}', 'RSSController@byMonth');
 	
 	/* post index */
+	Route::get('/home', function() {
+		return redirect('/');
+	});
+
 	Route::get('/', 'BlogController@index');
 	Route::get('/author/{user}', 'BlogController@byUser');
 	Route::get('/tags/{tag}', 'BlogController@byTag');

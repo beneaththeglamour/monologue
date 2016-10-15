@@ -1,15 +1,22 @@
+<?php
+
+	$nav_items = [
+		['title' => 'Blog', 'name' => 'blog', 'action' => 'BlogController@index'],
+		['title' => 'Contact', 'name' => 'contact', 'action' => 'BlogController@index']
+	];
+
+	$current_route = Route::getCurrentRoute()->getName();
+
+?>
+
 @section('navbar')
 	<ul class="list-inline">
-		<li class="list-inline-item">
-			<a href="#" class="item item-active" title="Blog">
-				<span>Blog</span>
-			</a>
-		</li>
-
-		<li class="list-inline-item">
-			<a href="#" class="item" title="Contact">
-				<span>Contact</span>
-			</a>
-		</li>
+		@foreach ($nav_items as $item)
+			<li class="list-inline-item">
+				<a href="{{ action($item['action']) }}" class="item{{ ($current_route == $item['name']) ? ' item-active': '' }}" title="{{ $item['title'] }}">
+					<span>{{ $item['title'] }}</span>
+				</a>
+			</li>
+		@endforeach
 	</ul>
 @endsection
