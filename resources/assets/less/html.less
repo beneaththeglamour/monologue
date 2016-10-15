@@ -1,14 +1,19 @@
-@footer-height: 275px;
-
 html {
     position: relative;
     min-height: 100%;
 }
 
+main {
+    flex: 1;
+}
+
 body {
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color: #525252;
-    margin-bottom: @footer-height;
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 
     &::-webkit-scrollbar {
         width: 10px !important;
