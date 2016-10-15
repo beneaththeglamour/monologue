@@ -3,10 +3,6 @@
 
 @import "./html.less";
 
-@serif: Georgia, serif;
-@sans-serif: Roboto;
-@sans-serif-light: 'Roboto Light';
-
 // reflow animation
 div.container {
     -webkit-transition: max-width .6s ease;
@@ -429,6 +425,7 @@ article.post {
 
         samp {
             font-size: 13px;
+            word-break: break-all;
         }
 
         padding: 5px 20px;
@@ -589,7 +586,7 @@ footer {
     padding: 30px 0;
 
     @media (min-width: 992px) {
-        padding: 50px 0;
+        padding: 45px 0;
     }
 
     p.about {
@@ -755,7 +752,6 @@ div.auth {
     }
 
     div.checkbox {
-        padding-top: 3px;
         font-size: 12px;
         color: #9a9a9a;
 
