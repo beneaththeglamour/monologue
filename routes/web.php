@@ -11,9 +11,12 @@
 |
 */
 
-Auth::routes();
-
 Route::group(['as' => 'blog'], function() {
+	/* minimal auth routes */
+	Route::get('/login', 'Auth\LoginController@showLoginForm');
+	Route::post('/login', 'Auth\LoginController@login');
+	Route::get('/logout', 'Auth\LoginController@logout');
+
 	/* syndication */
 	Route::get('/rss', 'RSSController@index');
 	Route::get('/rss/author/{user}', 'RSSController@byUser');
