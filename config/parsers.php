@@ -60,11 +60,6 @@ return [
         'replace' => '<a target="_blank" title="$1" href="$2"><img alt="$1" src="$2"></a>'
     ],
 
-    'img-noborder' => [
-        'pattern' => '/\[img-noborder\](.*?)\[\/img-noborder\]/s',
-        'replace' => '<a target="_blank" href="$1"><img class="noborder" src="$1"></a>'
-    ],
-
     'div' => [
         'pattern' => '/\[div\=(.*?)\](.*?)\[\/div\]/s',
         'replace' => '<div class="$1">$2</div>'
