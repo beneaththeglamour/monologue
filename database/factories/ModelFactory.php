@@ -41,7 +41,7 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
         'subtitle' => $faker->sentence(5),
         'slug' => strtolower(str_slug($title)),
         'summary' => $content[0],
-        'content' => "<p>".implode("</p>\n\n<p>", $content)."</p>",
+        'content' => "[p]".implode("[/p]\n\n[p]", $content)."[/p]",
         'created_at' => $created_at,
         'updated_at' => $created_at,
         'published_at' => $created_at
