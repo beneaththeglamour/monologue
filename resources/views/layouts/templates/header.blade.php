@@ -41,7 +41,7 @@
 		    <div class="row">
 		        <div class="col-xs-12 col-lg-6">
     	            <div class="logo" id="logo">
-                	    <a href="{{ action('BlogController@index') }}"></a>
+                	    <a href="{{ env('APP_URL') }}"></a>
                 	</div>
 		        </div>
 		        
