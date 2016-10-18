@@ -16,7 +16,7 @@
 				<section class="col-lg-3 links">
 					<div><a href="{{ action('RSSController@index') }}">syndication</a></div>
 					<div><a href="#">projects</a></div>
-					<div><a href="#">contact</a></div>
+					<div><a href="{{ action('ContactController@showContactForm') }}">contact</a></div>
 					@if (!Auth::user())
 						<div><a href="{{ action('Auth\LoginController@showLoginForm') }}">log in</a></div>
 					@else

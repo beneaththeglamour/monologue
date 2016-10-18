@@ -2,7 +2,7 @@
 
 	$nav_items = [
 		['title' => 'Blog', 'name' => 'blog', 'action' => 'BlogController@index'],
-		['title' => 'Contact', 'name' => 'contact', 'action' => 'BlogController@index']
+		['title' => 'Contact', 'name' => 'contact', 'action' => 'ContactController@showContactForm']
 	];
 
 	$current_route = Route::getCurrentRoute()->getName();

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container auth">
+<div class="container auth controls">
     <div class="col-lg-8 offset-lg-2">
         <div class="title">
             <span>Sign in</span>

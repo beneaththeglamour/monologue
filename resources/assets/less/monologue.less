@@ -9,7 +9,21 @@ div.container {
     transition: max-width .6s ease;
 }
 
-// global button style
+// global bootstrap overrides
+a {
+    color: #979797;
+
+    &:hover {
+        color: #545454;
+    }
+}
+
+.alert {
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 0;
+}
+
 .btn {
     font-size: 12px;
     background: #2e2e2e;
@@ -705,38 +719,7 @@ ul.share {
     }
 }
 
-div.auth {
-    @media (min-width:992px) {
-        padding: 2em 0 3em;
-    }
-
-    padding: 1em 0;
-
-    div.title {
-        @media (min-width:992px) {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        text-align: left;
-        margin-bottom: 25px;
-
-        span {
-            font-family: @sans-serif-light;
-            color: #6C6C6C;
-            font-size: 50px;
-        }
-    }
-
-    div.subtitle {
-        font-size: 12px;
-        color: #929292;
-
-        span {
-            font-size: 12px;
-        }
-    }
-
+div.controls {
     label.control {
         @media (min-width:992px) {
             padding-bottom: 0;
@@ -768,5 +751,86 @@ div.auth {
         input[type='checkbox'] {
             margin-top: 3px;
         }
+    }
+}
+
+div.auth {
+    @media (min-width:992px) {
+        padding: 2em 0 3em;
+    }
+
+    padding: 1em 0;
+
+    div.title {
+        @media (min-width:992px) {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        text-align: left;
+        margin-bottom: 25px;
+
+        span {
+            font-family: @sans-serif-light;
+            color: #6C6C6C;
+            font-size: 50px;
+        }
+    }
+
+    div.subtitle {
+        font-size: 12px;
+        color: #929292;
+
+        span {
+            font-size: 12px;
+        }
+    }
+}
+
+div.contact {
+    @media (min-width:992px) {
+        padding: 2em 0 3em;
+        text-align: center;
+    }
+
+    margin: 0 auto;
+    padding: 1em 0;
+    text-align: left;
+
+    hr {
+        margin-bottom: 10px;
+    }
+
+    div.title {
+        font-size: 40px;
+        color: #6C6C6C;
+        
+        @media (min-width:992px) {
+            font-size: 50px;
+        }
+    }
+
+    div.subtitle {
+        font-size: 14px;
+        color: #949494;
+    }
+
+    div.social {
+        margin-top: 10px;
+        font-size: 32px;
+
+        a {
+            color: #909090;
+
+            &:hover {
+                color: #545454;
+            }
+        }
+    }
+
+    footer {
+        font-size: 12px;
+        color: #979797;
+        margin-bottom: 100px;
     }
 }

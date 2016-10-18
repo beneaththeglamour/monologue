@@ -11,6 +11,12 @@
 |
 */
 
+/* custom pages */
+Route::group(['as' => 'contact', 'name' => 'contact'], function() {
+	Route::get('/contact', 'ContactController@showContactForm');
+	Route::post('/contact', 'ContactController@sendMessage');
+});
+
 Route::group(['as' => 'blog', 'name' => 'blog'], function() {
 	/* minimal auth routes */
 	Route::get('/login', 'Auth\LoginController@showLoginForm');
