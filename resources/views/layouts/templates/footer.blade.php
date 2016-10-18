@@ -10,7 +10,7 @@
 ?>
 
 @section('footer')
-	<footer>
+	<footer class="main">
 		<div class="container">
 			<div class="row">
 				<section class="col-lg-3 links">
