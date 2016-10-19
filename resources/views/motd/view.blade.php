@@ -67,19 +67,15 @@
 				        		@endif
 
 				        		<div class="message">
+					        		<span class="header">MESSAGE OF THE DAY</span>
+
+					        		<div class="navigation">
+					        			@yield('motd-navigation')
+					        		</div>
+					        		
 				        			@if ($message->content)
-				        				<span class="header">MESSAGE OF THE DAY</span>
-
-				        				<div class="navigation">
-				        					@yield('motd-navigation')
-				        				</div>
-
 				        				<p class="italic">&ldquo;{!! $message->content !!}&rdquo;</p>
-				        			@else
-				        				<div class="navigation">
-				        					@yield('motd-navigation')
-				        				</div>
-
+				        			@elseif (!$message->youtube)
 				        				<p>Nothing here for this day.</p>
 				        			@endif
 
