@@ -7,10 +7,10 @@
 @push('meta')
 	<meta name="author" content="{{ $post->author->display_name }}">
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:site" content="{{ env('META_TWITTER_SITE') }}" />
+	<meta name="twitter:site" content="{{ env('META_TWITTER_SITE') }}">
 	<meta name="twitter:title" content="{{ $post->title }}">
 	<meta name="twitter:description" content="{{ $post->subtitle }}">
-	<meta name="twitter:image" content="{{ $post->bannerUrl }}" />
+	<meta name="twitter:image" content="{{ $post->bannerUrl }}">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="{{ $post->title }}">
 	<meta property="og:description" content="{{ $post->subtitle }}">
