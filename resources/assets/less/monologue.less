@@ -104,7 +104,6 @@ header {
 // showcase
 header.showcase {
     margin: 0 auto;
-
     background: 0 50% no-repeat #000;
     background-size: cover;
 
@@ -213,6 +212,115 @@ header.showcase-index {
     }
 
     margin-bottom: 25px;
+}
+
+header.motd {
+    height: 100%;
+    min-height: 100%;
+    
+    div.overlay {
+        height: 100%;
+        min-height: 100%;
+        
+        div.container {
+            height: 100%;
+            min-height: 100%;
+        }
+
+        div.content {
+            @media (min-width: 992px) {
+                width: 75%;
+            }
+
+            width: 100%;
+            height: 100%;
+            display: flex;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
+
+            section {
+                width: 100%;
+            }
+        }
+
+        div.navigation {
+            font-size: 13px;
+            text-align: center;
+            margin-top: 3px;
+            margin-bottom: 15px;
+            letter-spacing: 1.25px;
+
+            a {
+                color: #4e4e4e;
+                text-decoration: none;
+
+                &:hover {
+                    color: #676767;
+                }
+            }
+        }
+
+        div.embed {
+            background: #000;
+            border: 1px #000 solid;
+            box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
+        }
+
+        div.message {
+            margin-top: 25px;
+            text-align: center;
+
+            span.header {
+                display: block;
+                color: #acacac; 
+                font-size: 13px;
+                letter-spacing: 2px;
+                text-shadow: 0px 0px 5px #000000;
+            }
+
+            p {
+                @media (min-width: 992px) {
+                    width: 65%;
+                }
+
+                width: 80%;
+                color: #FFF;
+                margin: 0 auto;
+                display: block; 
+                font-size: 20px;
+                margin-top: 10px;
+                font-style: italic;
+                font-family: Georgia;
+                text-shadow: 0px 0px 10px #000000;
+            }
+
+            div.share {
+                display: block;
+                font-size: 22px;
+                margin-top: 20px;
+
+                a {
+                    opacity: 0.20;
+                    color: #FFFFFF;
+                    text-shadow: 0px 0px 5px #000000;
+                    text-decoration: none;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            span.footer {
+                display: block;
+                color: #6f6f6f;
+                opacity: 0.9;
+                font-size: 11px;
+                text-shadow: 0px 0px 5px #000000;
+            }
+        }
+    }
 }
 
 header.showcase-index-user {

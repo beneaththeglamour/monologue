@@ -17,6 +17,11 @@ Route::group(['as' => 'contact', 'name' => 'contact'], function() {
 	Route::post('/contact', 'ContactController@sendMessage');
 });
 
+Route::group(['as' => 'motd', 'name' => 'motd'], function() {
+	Route::get('/motd', 'MOTDController@latest');
+	Route::get('/motd/{year}/{month}/{day}', 'MOTDController@byDate');
+});
+
 Route::group(['as' => 'blog', 'name' => 'blog'], function() {
 	/* minimal auth routes */
 	Route::get('/login', 'Auth\LoginController@showLoginForm');
