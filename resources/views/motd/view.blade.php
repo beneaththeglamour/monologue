@@ -1,5 +1,19 @@
+@section('title'){{ $title }} &mdash; {{ env('BLOG_TITLE') }}@endsection
+
 @push('styles')
 	#banner { background-image: url('{{ $message->backgroundUrl }}'); }
+@endpush
+
+@push('meta')
+	<link rel="canonical" href="{{ $message->permalink }}">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="{{ env('META_TWITTER_SITE') }}">
+	<meta name="twitter:title" content="{{ $title }}">
+	<meta name="twitter:image" content="{{ $message->backgroundUrl }}">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="{{ $title }}">
+	<meta property="og:image" content="{{ $message->backgroundUrl }}">
+	<meta property="og:url" content="{{ $message->permalink }}">
 @endpush
 
 @include('layouts.templates.header')
@@ -78,7 +92,7 @@
 				        					</li>
 
 				        					<li class="list-inline-item">
-				        						<a href="https://twitter.com/home?status={{ 'Message of the Day: '.$message->created_at->format('F d, Y').' '.$message->permalink }}">
+				        						<a href="https://twitter.com/home?status={{ $title.' '.$message->permalink }}">
 				        							<span class="icon-twitter"></span>
 				        						</a>
 				        					</li>

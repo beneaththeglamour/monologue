@@ -27,6 +27,7 @@ class MOTDController extends Controller
 		}
 		
 		return view('motd.view', [
+			'title' => 'Message of the Day: '.$message->created_at->format('F d, Y'),
 			'message' => $message
 		]);
 	}
@@ -48,6 +49,7 @@ class MOTDController extends Controller
 		}
 
 		return view('motd.view', [
+			'title' => 'Message of the Day: '.$message->created_at->format('F d, Y'),
 			'message' => $message
 		]);
 	}
