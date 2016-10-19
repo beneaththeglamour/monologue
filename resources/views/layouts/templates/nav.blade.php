@@ -5,7 +5,11 @@
 		['title' => 'Contact', 'name' => 'contact', 'action' => 'ContactController@showContactForm']
 	];
 
-	$current_route = Route::getCurrentRoute()->getName();
+	$current_route = Route::getCurrentRoute();
+
+	if ($current_route) {
+		$current_route = Route::getCurrentRoute()->getName();
+	}
 
 ?>
 
