@@ -20,6 +20,11 @@ class MOTDController extends Controller
 			->where('created_at', '<=', new \DateTime)
 			->limit(1)
 			->first();
+
+		if (!$message) {
+			// No messages.
+			return abort(404);
+		}
 		
 		return view('motd.view', [
 			'message' => $message
