@@ -39,4 +39,5 @@ You can use the initial BBcode-esque markup defined in `config/parsers.php` or j
     * Tag banners are stored in `storage/app/public/banners/users/`
     * Post banners are stored in `storage/app/public/banners/users/`
     * User banners are stored in `storage/app/public/banners/users/`
+    * MOTD backgrounds are stored in `storage/app/public/banners/motd/`
 * Uploads can reside anywhere but it's recommended to store any post related content in the `storage/app/public/content/{post id}/` folder so that it can easily be referenced in the future.
