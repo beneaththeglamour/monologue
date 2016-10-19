@@ -5,6 +5,7 @@
 @section('description'){{ $post->subtitle }}@endsection
 
 @push('meta')
+	<link rel="canonical" href="{{ $post->permalink }}">
 	<meta name="author" content="{{ $post->author->display_name }}">
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="{{ env('META_TWITTER_SITE') }}">
@@ -15,7 +16,7 @@
 	<meta property="og:title" content="{{ $post->title }}">
 	<meta property="og:description" content="{{ $post->subtitle }}">
 	<meta property="og:image" content="{{ $post->bannerUrl }}">
-	<meta property="og:url" content="{{ URL::current() }}">
+	<meta property="og:url" content="{{ $post->permalink }}">
 	@foreach ($post->author->meta as $social)
 		@if ($social->network == "social_twitter")
 			<meta name="twitter:creator" content="{{ '@'.$social->account }}">
