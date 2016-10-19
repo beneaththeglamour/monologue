@@ -28,6 +28,7 @@ class MOTDController extends Controller
 		
 		return view('motd.view', [
 			'title' => 'Message of the Day: '.$message->created_at->format('F d, Y'),
+			'description' => 'The message of the day, brought to you by '.env('BLOG_TITLE').'.',
 			'message' => $message
 		]);
 	}
@@ -50,6 +51,7 @@ class MOTDController extends Controller
 
 		return view('motd.view', [
 			'title' => 'Message of the Day: '.$message->created_at->format('F d, Y'),
+			'description' => 'The message of the day, brought to you by '.env('BLOG_TITLE').'.',
 			'message' => $message
 		]);
 	}
