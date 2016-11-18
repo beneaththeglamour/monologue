@@ -36,8 +36,8 @@ You can use the initial BBcode-esque markup defined in `config/parsers.php` or j
 ### Avatars, banners and uploads
 * User avatars should be placed in `storage/app/public/avatars/` with a 32 character filename as a PNG.
 * Banner location depends on the type. In all cases the file should be stored as a JPG and the filename should contain up to 32 characters.
-    * Tag banners are stored in `storage/app/public/banners/users/`
-    * Post banners are stored in `storage/app/public/banners/users/`
+    * Tag banners are stored in `storage/app/public/banners/tags/`
+    * Post banners are stored in `storage/app/public/banners/posts/`
     * User banners are stored in `storage/app/public/banners/users/`
     * MOTD backgrounds are stored in `storage/app/public/banners/motd/`
 * Uploads can reside anywhere but it's recommended to store any post related content in the `storage/app/public/content/{post id}/` folder so that it can easily be referenced in the future.
