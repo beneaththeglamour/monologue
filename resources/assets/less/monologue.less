@@ -1,6 +1,8 @@
 @import (inline) "../css/fonts.css";
 @import (inline) "../css/bootstrap.css";
 
+@logo-width: 172px;
+
 @import "./html.less";
 
 // reflow animation
@@ -53,8 +55,7 @@ header {
         }
 
         margin: 0 auto 15px auto;
-        width: 172px;
-        height: 32px;
+        width: @logo-width;
         background-repeat: no-repeat;
 
         a {

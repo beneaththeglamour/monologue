@@ -20,17 +20,7 @@
 	    @stack('link')
 
 	    <style type="text/css">
-    		#logo {
-    			background-image: url('{{ env('ELIXIR_BASE_URL').elixir('img/logo.png', env('ELIXIR_DIRECTORY')) }}');
-    			background-image: linear-gradient(transparent, transparent), url('{{ env('ELIXIR_BASE_URL').elixir('img/logo.svg', env('ELIXIR_DIRECTORY')) }}');
-    		}
-
-    		#logo-alt {
-    			background-image: url('{{ env('ELIXIR_BASE_URL').elixir('img/logo-alt.png', env('ELIXIR_DIRECTORY')) }}');
-    			background-image: linear-gradient(transparent, transparent), url('{{ env('ELIXIR_BASE_URL').elixir('img/logo-alt.svg', env('ELIXIR_DIRECTORY')) }}');
-    		}
-
-	    	@stack('styles')
+	       	@stack('styles')
 	    </style>
 	</head>
 @endsection
@@ -41,7 +31,11 @@
 		    <div class="row">
 		        <div class="col-xs-12 col-lg-6">
     	            <div class="logo" id="logo">
-                	    <a href="{{ env('APP_URL') }}"></a>
+                	    <a href="{{ env('APP_URL') }}">
+                	    	<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 172 32" version="1.1">
+                	    		{!! file_get_contents('../resources/assets/img/logo.svg') !!}
+                	    	</svg>
+                	    </a>
                 	</div>
 		        </div>
 		        

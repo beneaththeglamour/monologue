@@ -36,7 +36,11 @@
 				<div class="row">
 					<div class="col-xs-12 col-lg-6">
 			            <div class="logo" id="logo-alt">
-		            	    <a href="{{ action('BlogController@index') }}"></a>
+		            	    <a href="{{ action('BlogController@index') }}">
+								<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 172 32" version="1.1" style="fill: white;">
+									{!! file_get_contents('../resources/assets/img/logo.svg') !!}
+								</svg>
+							</a>
 		            	</div>
 			        </div>
 			        
