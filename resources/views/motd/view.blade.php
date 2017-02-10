@@ -1,6 +1,25 @@
 @section('title'){{ $title }} &mdash; {{ env('BLOG_TITLE') }}@endsection
 
 @push('styles')
+	html {
+	    position: relative;
+	}
+
+	html, body {
+	    height: 100%;
+	    min-height: 100%;
+	}
+
+	main {
+	    flex: 1;
+	}
+
+	body {
+	    display: flex;
+	    min-height: 100vh;
+	    flex-direction: column;
+	}
+
 	#banner { background-image: url('{{ $message->backgroundUrl }}'); }
 @endpush
 
