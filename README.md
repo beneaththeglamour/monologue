@@ -2,7 +2,7 @@
 
 ## Description
 
-Laravel-based blog script currently running on [aixxe.net](aixxe.net). Rather basic and leaves a lot to be desired - mainly available here so I don't accidentally lose the source code.
+A basic Laravel-based blog script that leaves a lot to be desired - mainly available here so I don't accidentally lose the source code.
 
 ## Installation
 
